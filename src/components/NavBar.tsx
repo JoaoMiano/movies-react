@@ -21,15 +21,15 @@ export const NavBar = () => {
     }
 
     return (
-        <nav className="h-20 w-full bg-gray-900 flex justify-between items-center px-6 sm:px-12 py-4 border-b-4 border-yellow-500 shadow-md">
+        <nav className="h-20 w-full bg-gray-900 flex justify-between items-center px-6 sm:px-12 py-4 border-b-4 border-yellow-500 shadow-md overflow-hidden">
             {/* Logo */}
             <div className="flex items-center">
                 <Link to="/" className="flex items-center gap-2 text-yellow-500 hover:opacity-80 transition-opacity">
-                    <div className="text-xl sm:text-2xl font-bold font-bebas leading-none">
+                    <div className="text-xl sm:text-2xl font-bold font-bebas leading-none hidden lg:block">
                         <p>React</p>
                         <p>Movies</p>
                     </div>
-                    <BiSolidCameraMovie className="text-4xl sm:text-5xl" />
+                    <BiSolidCameraMovie className="text-4xl sm:text-5xl mr-2 lg:mr-0" />
                 </Link>
             </div>
 
