@@ -21,7 +21,7 @@ export const NavBar = () => {
     }
 
     return (
-        <nav className="h-20 w-full bg-gray-900 flex justify-between items-center px-6 sm:px-12 py-4 border-b-4 border-yellow-500 shadow-md overflow-hidden">
+        <nav className="h-20 w-full bg-gray-900 flex justify-between items-center px-2 sm:px-12 py-1 border-b-4 border-yellow-500 shadow-md overflow-hidden">
             {/* Logo */}
             <div className="flex items-center">
                 <Link to="/" className="flex items-center gap-2 text-yellow-500 hover:opacity-80 transition-opacity">
@@ -38,7 +38,7 @@ export const NavBar = () => {
                 <input
                     type="text"
                     placeholder="Busque por um filme"
-                    className="flex-grow bg-gray-800 text-white text-sm sm:text-base placeholder-gray-400 p-2 rounded-lg border border-gray-700 focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition-all"
+                    className="w-24 flex-grow bg-gray-800 text-white text-sm sm:text-base placeholder-gray-400 p-2 rounded-lg border border-gray-700 focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition-all"
                     value={searchInput}
                     onChange={(e)=>setSeacrchInput(e.target.value)}
                     onKeyUp={handleKeyUpAction}
