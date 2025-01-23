@@ -1,50 +1,54 @@
-# React + TypeScript + Vite
+# 🎬 Projeto Catálogo de Filmes
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bem-vindo ao **Catálogo de Filmes**, um projeto desenvolvido com React, TypeScript e Tailwind CSS. Este aplicativo consome uma API para exibir informações detalhadas sobre filmes, como título, pôster, descrição, data de lançamento, idioma de origem e avaliação.
 
-Currently, two official plugins are available:
+## 🖥️ Acesse o projeto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[🔗 Clique aqui para acessar o projeto](#coloque-o-link-aqui)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 🚀 Tecnologias utilizadas
 
-- Configure the top-level `parserOptions` property like this:
+- **React**: Biblioteca JavaScript para construção de interfaces de usuário.
+- **TypeScript**: Superset do JavaScript com tipagem estática.
+- **Tailwind CSS**: Framework utilitário para estilização.
+- **Axios**: Biblioteca para requisições HTTP.
+- **React Router**: Gerenciamento de rotas na aplicação.
+- **React Icons**: Biblioteca de ícones para React.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+---
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## 📑 Funcionalidades
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- Exibição de detalhes de filmes consumidos de uma API.
+- Busca realizado pelo nome do filme
+- Layout responsivo, adaptado para dispositivos móveis e desktops.
+- Informações exibidas:
+  - **Título**
+  - **Pôster**
+  - **Descrição**
+  - **Data de lançamento**
+  - **Idioma de origem**
+  - **Avaliação**
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+---
+
+## 🌐 API utilizada
+
+A aplicação utiliza a API de filmes [The Movie Database (TMDB)](https://www.themoviedb.org/). É necessário criar uma conta e gerar uma chave de API para consumir os dados.
+
+
+## 🤝 Contribuição
+
+Contribuições são sempre bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.
+
+---
+
+## 🧑‍💻 Autor
+
+Desenvolvido por **Joao Pedro Miano**.
+
+[LinkedIn](https://www.linkedin.com/in/joao-miano/)
+
+
