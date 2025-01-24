@@ -15,6 +15,13 @@ export const Movie = () => {
   const [movie, setMovie] = useState<MovieType | null>(null);
   const [loading, setLoading] = useState(true);
 
+  const tranformDollar=(value:number)=>{
+    return value.toLocaleString("en-US", {
+      style: 'currency',
+      currency: 'USD'
+    })
+  }
+
   const getMovie = async (url: string) => {
     try {
       const response = await axios.get(url, {
@@ -89,14 +96,14 @@ export const Movie = () => {
                 <h4 className="flex leading-none gap-2 text-contrast font-bold text-xl mt-2">
                   <BiSolidDollarCircle /> Orçamento:
                 </h4>
-                <p className="text-white my-3 mx-6 text-lg">$ {movie.budget.toFixed(2)}</p>
+                <p className="text-white my-3 mx-6 text-lg">{tranformDollar(movie.budget)}</p>
               </div>
 
               <div className="border-b-4 border-contrast">
                 <h4 className="flex leading-none gap-2 text-contrast font-bold text-xl mt-2">
                   <BiSolidWallet  /> Receita:
                 </h4>
-                <p className="text-white my-3 mx-6 text-lg">$ {movie.revenue.toFixed(2)}</p>
+                <p className="text-white my-3 mx-6 text-lg">{tranformDollar(movie.revenue)}</p>
               </div>
             </div>
           </div>
