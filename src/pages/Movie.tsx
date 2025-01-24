@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { MovieType } from "../types/Movie";
 import { Loading } from "../components/Loading";
-import { BiCalendar, BiSolidFlagAlt, BiSolidStar, BiSolidLike } from "react-icons/bi";
+import { BiSolidTime, BiCalendar, BiSolidDollarCircle, BiSolidWallet } from "react-icons/bi";
 import { BsFillFileEarmarkTextFill } from "react-icons/bs";
 
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -22,8 +22,7 @@ export const Movie = () => {
           Authorization: `${apiKey}`,
         },
       });
-      setMovie(response.data);
-      console.log(response.data);
+      setMovie(response.data);;
     } catch (error) {
       console.log(error);
     } finally {
@@ -43,8 +42,8 @@ export const Movie = () => {
       }
 
       {!loading && movie !== null && (
-        <div className="flex flex-col items-center gap-10 bg-background2 p-6">
-          <h3 className="flex justify-center items-center pt-3 text-white text-4xl font-bebas text-center">
+        <div className="flex flex-col items-center lg:gap-10 bg-background2 p-4 lg:p-6">
+          <h3 className="flex justify-center items-center lg:pt-3 text-white text-3xl lg:text-4xl font-bebas text-center">
             {movie.title}
           </h3>
 
@@ -60,7 +59,7 @@ export const Movie = () => {
             </div>
 
             {/* Informações do filme */}
-            <div className="bg-gray-900 rounded-lg flex-1 p-6 mt-4 lg:mt-0">
+            <div className="bg-gray-900 rounded-lg flex-1 p-6 mt-2 lg:mt-0">
               <div className="border-b-4 border-contrast mb-4">
                 <h4 className="flex leading-none gap-2 text-contrast font-bold text-xl mt-2">
                   <BiCalendar /> Data de lançamento:
@@ -72,10 +71,10 @@ export const Movie = () => {
 
               <div className="border-b-4 border-contrast mb-4">
                 <h4 className="flex leading-none gap-2 text-contrast font-bold text-xl mt-2">
-                  <BiSolidFlagAlt /> Idioma de origem:
+                  <BiSolidTime /> Duração:
                 </h4>
                 <p className="text-white my-3 mx-6 text-lg">
-                  {movie.original_language.toUpperCase()}
+                  {movie.runtime} minutos.
                 </p>
               </div>
 
@@ -88,16 +87,16 @@ export const Movie = () => {
 
               <div className="border-b-4 border-contrast">
                 <h4 className="flex leading-none gap-2 text-contrast font-bold text-xl mt-2">
-                  <BiSolidStar /> Avaliação:
+                  <BiSolidDollarCircle /> Orçamento:
                 </h4>
-                <p className="text-white my-3 mx-6 text-lg">{movie.vote_average.toFixed(1)}</p>
+                <p className="text-white my-3 mx-6 text-lg">$ {movie.budget.toFixed(2)}</p>
               </div>
 
               <div className="border-b-4 border-contrast">
                 <h4 className="flex leading-none gap-2 text-contrast font-bold text-xl mt-2">
-                  <BiSolidLike /> Votos:
+                  <BiSolidWallet  /> Receita:
                 </h4>
-                <p className="text-white my-3 mx-6 text-lg">{movie.vote_count}</p>
+                <p className="text-white my-3 mx-6 text-lg">$ {movie.revenue.toFixed(2)}</p>
               </div>
             </div>
           </div>
