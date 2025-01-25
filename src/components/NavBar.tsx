@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { BiSolidCameraMovie, BiMenu } from "react-icons/bi"
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { MobileSidebar } from "./MobileSidebar";
 import { SearchProvider } from "../context/SearchContext";
 import { SearchInput } from "./SearchInput";
 import { SearchButton } from "./SearchButton";
-import { MenuOpenContext, MenuOpenProvider, useMenuOpen } from "../context/MenuOpenContext";
+import { MenuOpenContext} from "../context/MenuOpenContext";
 
 
 

@@ -51,7 +51,7 @@ export const Search = () => {
                 <div className=" flex w-screen justify-center px-6 pb-8">
                     <div className="grid grid-cols-2 gap-10 sm:grid-cols-3 lg:grid-cols-5">
                         {movies.map((item) => (
-                            <div key={item.id} className="max-w-56">
+                            <div key={item.id}>
 
                                 <MovieCard movie={item} />
                             </div>
