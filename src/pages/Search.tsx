@@ -23,7 +23,6 @@ export const Search = () => {
                     Authorization: `${apiKey}`
                 }
             })
-            console.log(response.data)
             setMovies(response.data.results)
         } catch (error) {
             console.log(error)
@@ -35,7 +34,7 @@ export const Search = () => {
 
     useEffect(() => {
         const searchQueryUrl = `${searchURL}?query=${query}`
-        console.log(searchQueryUrl)
+        
         getQueryMovies(searchQueryUrl)
     }, [query])
 
@@ -50,7 +49,7 @@ export const Search = () => {
 
             {!loading && movies.length > 0 &&
                 <div className=" flex w-screen justify-center px-6 pb-8">
-                    <div className="grid grid-cols-1 gap-10 sm:grid-cols-3 lg:grid-cols-5">
+                    <div className="grid grid-cols-2 gap-10 sm:grid-cols-3 lg:grid-cols-5">
                         {movies.map((item) => (
                             <div key={item.id} className="max-w-56">
 
