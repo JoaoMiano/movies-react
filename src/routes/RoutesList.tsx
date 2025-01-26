@@ -4,6 +4,7 @@ import { Movie } from '../pages/Movie.tsx'
 import { Search } from '../pages/Search.tsx'
 import App from "../App.tsx"
 import ScrollToTop from "../components/ScrollToTop.tsx"
+import { Series } from "../pages/Series.tsx"
 
 export const RoutList = () => {
   return (
@@ -14,6 +15,7 @@ export const RoutList = () => {
         <Route path='/' element={<Home />} />
         <Route path='/movie/:id' element={<Movie />} />
         <Route path='/search' element={<Search />} />
+        <Route path='/series' element={<Series/>}/>
 
       </Routes>
     </section>

@@ -7,7 +7,7 @@ import { BiSolidTime, BiCalendar, BiSolidDollarCircle, BiSolidWallet } from "rea
 import { BsFillFileEarmarkTextFill } from "react-icons/bs";
 
 const apiKey = import.meta.env.VITE_API_KEY;
-const moviesUrl = import.meta.env.VITE_API;
+const moviesUrl = import.meta.env.VITE_API_TV;
 const imageUrl = import.meta.env.VITE_IMG;
 
 export const Movie = () => {

@@ -1,25 +1,26 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { MovieType } from "../types/Movie"
 import { Loading } from "../components/Loading"
-import { MovieCard } from "../components/MovieCard"
+import { SerieType } from "../types/Serie"
+import { SerieCard } from "../components/SerieCard"
 
 
 const apiKey = import.meta.env.VITE_API_KEY
-const moviesUrl = import.meta.env.VITE_API_MOVIE
-
-export const Home = () => {
-    const [movies, setMovies] = useState<MovieType[]>([])
+const serieUrl = import.meta.env.VITE_API_TV
+// console.log(serieUrl)
+export const Series = () => {
+    const [series, setSeries] = useState<SerieType[]>([])
     const [loading, setLoading] = useState(true)
 
-    const getTopRatedMovies = async (url: string) => {
+    const getTopRatedSeries = async (url: string) => {
         try {
             const response = await axios.get(`${url}`, {
                 headers: {
                     Authorization: `${apiKey}`
                 }
             })
-            setMovies(response.data.results)
+            setSeries(response.data.results)
+            console.log(response.data.results)
         } catch (error) {
             console.log(error)
         } finally {
@@ -29,8 +30,10 @@ export const Home = () => {
     }
 
     useEffect(() => {
-        const urlPopularFilms = `${moviesUrl}/top_rated`
-        getTopRatedMovies(urlPopularFilms)
+        const urlTopSeries = `${serieUrl}/top_rated`
+        // console.log(urlTopSeries)
+        getTopRatedSeries(urlTopSeries)
+
     }, [])
 
     return (
@@ -43,13 +46,13 @@ export const Home = () => {
                 <div className="h-screen w-full bg-background2 flex items-center justify-center"><Loading /></div>
             }
 
-            {!loading && movies.length > 0 &&
+            {!loading && series.length > 0 &&
                 <div className=" flex w-screen justify-center px-6 pb-8">
                     <div className="grid grid-cols-2 gap-10 sm:grid-cols-3 lg:grid-cols-5">
-                        {movies.map((item) => (
+                        {series.map((item) => (
                             <div key={item.id} className="max-w-56">
 
-                                <MovieCard movie={item} />
+                                <SerieCard serie={item} />
                             </div>
                         ))}
                     </div>
@@ -57,7 +60,7 @@ export const Home = () => {
 
             }
 
-            {!loading && movies.length === 0 &&
+            {!loading && series.length === 0 &&
                 <p>Não há filmes para exibir</p>
             }
 
