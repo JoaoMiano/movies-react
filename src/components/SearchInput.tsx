@@ -3,7 +3,7 @@ import { SearchContext } from "../context/SearchContext"
 import { useNavigate } from "react-router-dom"
 import { useMenuOpen } from "../context/MenuOpenContext"
 
-export const SearchInput = () => {
+export const SearchInput = ({label, page}:{label:string, page:string}) => {
     const searchCtx = useContext(SearchContext)
     const menuOpenCtx= useMenuOpen()
     const navigate = useNavigate()
@@ -13,14 +13,15 @@ export const SearchInput = () => {
             searchCtx?.setSearchInput('')
             menuOpenCtx.setMenuOpen(false)
             if(searchCtx?.searchInput === undefined) return
-            navigate(`/search?q=${searchCtx?.searchInput}`)
+            navigate(`/search-${page}?q=${searchCtx?.searchInput}`)
+            console.log(e)
         }
     }
     return (
         <input
             type="text"
-            placeholder="Busque por um filme"
-            className="w-full lg:w-24 flex-grow bg-gray-800 text-white text-sm sm:text-base placeholder-gray-400 p-2 rounded-lg border border-gray-700 focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition-all"
+            placeholder={`${label}`}
+            className="w-full flex-grow bg-gray-800 text-white text-sm sm:text-base placeholder-gray-400 p-2 rounded-lg border border-gray-700 focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition-all"
             value={searchCtx?.searchInput}
             onChange={(e) => searchCtx?.setSearchInput(e.target.value)}
             onKeyUp={handleKeyUpAction}

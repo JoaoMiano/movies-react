@@ -4,7 +4,7 @@ import { SearchContext } from "../context/SearchContext"
 import { useNavigate } from "react-router-dom"
 import { useMenuOpen } from "../context/MenuOpenContext"
 
-export const SearchButton = () => {
+export const SearchButton = ({page}:{page:string}) => {
 
     const menuOpenContext = useMenuOpen()
     const searchCtx = useContext(SearchContext)
@@ -14,7 +14,7 @@ export const SearchButton = () => {
         if (!searchCtx?.searchInput) return
         searchCtx?.setSearchInput('')
         menuOpenContext.setMenuOpen(false)
-        navigate(`/search?q=${searchCtx.searchInput}`)
+        navigate(`/search-${page}?q=${searchCtx.searchInput}`)
         
     }
 
@@ -22,7 +22,7 @@ export const SearchButton = () => {
 
     return (
         <button
-            className="w-full lg:max-w-32 bg-yellow-500 text-gray-900 text-sm sm:text-base font-bold px-4 py-2 rounded-lg hover:bg-yellow-600 transition-all flex items-center gap-2"
+            className="w-full lg:max-w-32 bg-yellow-500 text-gray-900 text-sm sm:text-base font-bold px-4 py-2 rounded-lg hover:bg-yellow-600 transition-all flex items-center gap-2 flex-1"
             onClick={handleSearchButton}
         >
             <BiSearch className="text-lg sm:text-xl" />

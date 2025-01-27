@@ -2,9 +2,6 @@ import { Link } from "react-router-dom";
 import { BiSolidCameraMovie, BiMenu } from "react-icons/bi"
 import { useContext, useState } from "react";
 import { MobileSidebar } from "./MobileSidebar";
-import { SearchProvider } from "../context/SearchContext";
-import { SearchInput } from "./SearchInput";
-import { SearchButton } from "./SearchButton";
 import { MenuOpenContext } from "../context/MenuOpenContext";
 
 
@@ -16,9 +13,20 @@ export const NavBar = () => {
 
     const [showingMovies, setShowingMovies] = useState<boolean>(true)
 
+    const handleLinkClick = (linkType: 'movies' | 'series') => {
+        if ((linkType === 'movies' && showingMovies) || (linkType === 'series' && !showingMovies)) {
+          // Já está no link selecionado, não faça nada
+          return;
+        }
+      
+        // Alterna o estado com base no link clicado
+        setShowingMovies(linkType === 'movies');
+      };
+      
+
 
     return (
-        <SearchProvider>
+        <>
             <nav className="h-20 w-full bg-gray-900 flex justify-between items-center px-2 sm:px-12 py-1 border-b-4 border-yellow-500 shadow-md overflow-hidden">
                 {/* Logo */}
                 <div className="flex items-center">
@@ -36,25 +44,19 @@ export const NavBar = () => {
 
                         <li className={`hover:opacity-70 border-b-4 p-2 rounded-md transition-all ease-linear duration-200
                             ${showingMovies ? 'border-yellow-600': 'border-transparent'}`}>
-                            <Link to={'/'} onClick={()=> setShowingMovies(!showingMovies)}>
+                            <Link to={'/'} onClick={()=>handleLinkClick('movies')}>
                                 Filmes
                             </Link>
                         </li>
                         <li className={`hover:opacity-70 border-b-4 p-2 rounded-md transition-all ease-linear duration-200  
                             ${!showingMovies ? 'border-yellow-600':'border-transparent'}`}>
-                            <Link to={'/series'} onClick={()=> setShowingMovies(!showingMovies)}>
+                            <Link to={'/series'} onClick={()=>handleLinkClick('series')}>
                                 Series
                             </Link>
                         </li>
                     </ul>
                 </div>
 
-                {/* Search Bar */}
-                <div className=" hidden lg:flex items-center gap-3 w-full max-w-md">
-                    <SearchInput />
-                    <SearchButton />
-
-                </div>
 
 
                 {/* Menu Hamb */}
@@ -68,6 +70,6 @@ export const NavBar = () => {
 
             {/* Mobile Sidebar */}
             <MobileSidebar open={menuOpen} />
-        </SearchProvider>
+        </>
     );
 };

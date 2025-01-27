@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react"
-import { SearchButton } from "./SearchButton"
-import { SearchInput } from "./SearchInput"
 import { Link } from "react-router-dom"
 
 export const MobileSidebar = ({ open }: { open: boolean | undefined }) => {
@@ -36,12 +34,6 @@ export const MobileSidebar = ({ open }: { open: boolean | undefined }) => {
                         <li className=" text-white font-bold bg-transparent hover:bg-yellow-600 hover:text-gray-950 w-full text-center rounded-md "
                             onClick={()=> setShow(false)}>
                             <Link to={'/series'}>Series</Link>
-                        </li>
-                        <li className="w-full">
-                            <SearchInput />
-                        </li>
-                        <li className="w-full flex justify-center">
-                            <SearchButton />
                         </li>
                     </ul>
                 </div>

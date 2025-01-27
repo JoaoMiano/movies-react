@@ -1,6 +1,7 @@
 import { Footer } from "./components/Footer.tsx"
 import { NavBar } from "./components/NavBar"
 import { MenuOpenProvider } from "./context/MenuOpenContext.tsx"
+import { SearchProvider } from "./context/SearchContext.tsx"
 import { RoutList } from "./routes/RoutesList.tsx"
 
 function App() {
@@ -10,10 +11,12 @@ function App() {
       <MenuOpenProvider>
         <NavBar />
       </MenuOpenProvider>
+      <SearchProvider>
+        <RoutList />
+      </SearchProvider>
 
-      <RoutList/>
 
-      <Footer/>
+      <Footer />
     </div>
 
   )
