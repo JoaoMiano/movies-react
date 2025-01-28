@@ -29,9 +29,10 @@ export const NavBar = () => {
         <>
             <nav className="h-20 w-full bg-gray-900 flex justify-between items-center px-2 sm:px-12 py-1 border-b-4 border-yellow-500 shadow-md overflow-hidden">
                 {/* Logo */}
-                <div className="flex items-center">
+                <div className="flex items-center"
+                onClick={()=>setShowingMovies(true)}>
                     <Link to="/" className="flex items-center gap-2 text-yellow-500 hover:opacity-80 transition-opacity">
-                        <div className="text-center text-xl sm:text-2xl font-bold font-bebas leading-none">
+                        <div className="text-center text-xl sm:text-2xl font-bold font-bebas leading-none"      >
                             <p>React</p>
                             <p>Movies</p>
                         </div>
