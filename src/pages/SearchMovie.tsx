@@ -44,11 +44,11 @@ export const SearchMovie = () => {
     return (
         <div className="bg-background2 overflow-x-hidden">
 
-            <div className="flex flex-col pt-4 items-start w-full px-3 gap-3">
+            <div className="flex flex-col lg:flex-row lg:justify-between pt-4 items-start w-full px-3 gap-3">
                 <BackButton />
-                <div className=" flex gap-2 w-full">
-                    <SearchInput label='Busque por outro filme' page='movie' />
-                    <SearchButton page='movie' />
+                <div className=" flex gap-2 w-full max-w-96">
+                    <SearchInput label='Busque por outra serie' page='tv' />
+                    <SearchButton page='tv' />
                 </div>
 
             </div>
