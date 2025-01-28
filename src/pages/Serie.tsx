@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Loading } from "../components/Loading";
-import { BiCalendar, BiCollection, BiSolidUser,  } from "react-icons/bi";
+import { BiCalendar, BiCollection  } from "react-icons/bi";
 import { BsFillFileEarmarkTextFill } from "react-icons/bs";
 import { SerieType } from "../types/Serie";
 
