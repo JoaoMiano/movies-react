@@ -37,7 +37,7 @@ export const Home = () => {
     }, [optionSelected])
 
     return (
-        <div className="bg-background2 overflow-x-hidden">
+        <div className="bg-background2 overflow-x-hidden w-full">
                         <div className="flex flex-col lg:flex-row gap-3 lg:gap-10 py-4 px-8 lg:justify-between ">
             
                             <div className=" flex gap-5 bg-gray-800 p-2 rounded-md w-full max-w-96">
