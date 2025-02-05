@@ -7,7 +7,7 @@ import { RoutList } from "./routes/RoutesList.tsx"
 function App() {
 
   return (
-    <div className="container mx-auto flex-col">
+    <div className="container mx-auto flex-col w-full">
       <MenuOpenProvider>
         <NavBar />
       </MenuOpenProvider>
